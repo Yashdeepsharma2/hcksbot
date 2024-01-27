@@ -1,0 +1,7 @@
+git+https://github.com/Altruix/pyrogram
+tgcrypto
+python-dotenv
+pyromod
+telethon
+cryptg
+aiofiles
