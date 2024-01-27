@@ -2,6 +2,6 @@ pyrogram==2.0.106
 tgcrypto
 python-dotenv
 pyromod
-telethon
+telethon==1.24.0
 cryptg
 aiofiles
