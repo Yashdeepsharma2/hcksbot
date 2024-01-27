@@ -1,4 +1,4 @@
-git+https://github.com/Altruix/pyrogram
+pyrogram==2.0.106
 tgcrypto
 python-dotenv
 pyromod
