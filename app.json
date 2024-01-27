@@ -1,0 +1,16 @@
+{
+    "name":"hack Bot",
+    "description":"Lol",
+    "repository":"https://github.com/",
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "env": {
+        "HSHSHE":{
+            "description": "Write LOL",
+            "value":""
+        }
+    }
+}
