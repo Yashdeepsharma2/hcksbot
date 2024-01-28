@@ -33,5 +33,9 @@ def _pyro(dc_id, auth_key, user_id=999999999, test_mode=False, is_bot=False):
 
 
 async def _convert(string):
-    t, user_obj = await _telethon(string)
-    return _pyro(t.dc_id, t.auth_key.key, user_obj.id, False, user_obj.bot)
+    telethon_session, user_obj = await _telethon(string)
+    
+    # Assuming t.dc_id and t.auth_key.key are attributes of telethon_session
+    pyro_session = _pyro(telethon_session.dc_id, telethon_session.auth_key.key, user_obj.id, False, user_obj.bot)
+    print(pyro_session)
+    return pyro_session
