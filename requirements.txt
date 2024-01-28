@@ -1,7 +1,7 @@
-pyrogram==1.4.16
+pyrogram
 tgcrypto
 python-dotenv
 pyromod
-telethon==1.24.0
+telethon
 cryptg
 aiofiles
