@@ -2,6 +2,7 @@ import asyncio
 import struct
 import traceback
 
+import pyromod
 from pyrogram import Client, filters, idle
 from pyrogram.errors import FloodWait, SessionPasswordNeeded
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
@@ -14,6 +15,7 @@ from pyrogram_methods import METHODS
 
 bot_client = Client("bot_", api_id=api_id, api_hash=api_hash, bot_token=BOT_TOKEN)
 
+print(pyromod.listen)
 
 async def start_client(string):
     try:
