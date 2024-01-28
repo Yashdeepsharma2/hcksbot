@@ -21,7 +21,7 @@ print(pyromod.listen)
 async def start_client(string):
     try:
         client_ = Client(
-            "Test", api_id=api_id, api_hash=api_hash, string_session=string
+            "Test", api_id=api_id, api_hash=api_hash, session_string=string
         )
         await client_.start()
         client_.me = await client_.get_me()
