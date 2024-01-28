@@ -26,7 +26,7 @@ def _pyro(dc_id, auth_key, user_id=999999999, test_mode=False, is_bot=False):
     print(dc_id, auth_key, user_id, test_mode, is_bot)
     return (
         base64.urlsafe_b64encode(
-            struct.pack(ssf, dc_id, test_mode, auth_key, user_id, is_bot)
+            struct.pack(dc_id, test_mode, auth_key, user_id, is_bot)
         )
         .decode()
         .rstrip("=")
