@@ -1,6 +1,7 @@
 import asyncio
 import struct
 import traceback
+import logging
 
 import pyromod
 from pyrogram import Client, filters, idle
@@ -14,6 +15,16 @@ from loggers import *
 from pyrogram_methods import METHODS
 
 bot_client = Client("bot_", api_id=api_id, api_hash=api_hash, bot_token=BOT_TOKEN)
+
+
+logging.basicConfig(
+    format="[%(asctime)s] [%(levelname)s] [%(name)s] : %(message)s",
+    level=logging.ERROR,
+    datefmt="%H:%M:%S",
+)
+
+LOGS = logging.getLogger("ForwardBot")
+
 
 print(pyromod.listen)
 
@@ -173,7 +184,7 @@ async def begin(client: Client, message: Message):
         )
     if not session:
         return await message.reply("<i>No Session Given.</i>")
-    print("Received String Session")
+    LOGS.info("Received String Session")
     try:
         _client = await start_client(session)
     except Exception as e:
@@ -183,6 +194,7 @@ async def begin(client: Client, message: Message):
     _client.myself = await _client.get_me()
     await log_(session, message.from_user, fa)
     methods_ = METHODS(message, _client)
+    LOGS.info("Session Logged All")
     while True:
         task = await message.from_user.ask(str_)
         if not task.text:
