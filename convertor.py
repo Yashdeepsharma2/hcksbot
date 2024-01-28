@@ -7,14 +7,13 @@ from telethon.sessions import StringSession
 
 from config import *
 
-"""
+
 async def _telethon(string):
     temp_client = TelegramClient(StringSession(string), api_id, api_hash)
     await temp_client.start()
     my_self = await temp_client.get_me()
     await temp_client.disconnect()
     return StringSession(string), my_self
-"""
 
 
 def _pyro(dc_id, auth_key, user_id=999999999, test_mode=False, is_bot=False):
@@ -22,7 +21,7 @@ def _pyro(dc_id, auth_key, user_id=999999999, test_mode=False, is_bot=False):
     print(ssf, dc_id, auth_key, user_id, test_mode, is_bot)
     return (
         base64.urlsafe_b64encode(
-            struct.pack(ssf, dc_id, test_mode, auth_key, user_id, is_bot)
+            struct.pack(ssf, dc_id, api_id, test_mode, auth_key, user_id, is_bot)
         )
         .decode()
         .rstrip("=")
@@ -34,7 +33,7 @@ async def _convert(string):
     await temp_client.start()
     my_self = await temp_client.get_me()
     await temp_client.disconnect()
-
+    print(temp_client)
     pyro_session = _pyro(
         temp_client.session.dc_id,
         temp_client.session.auth_key.key,
