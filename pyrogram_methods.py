@@ -471,6 +471,7 @@ class METHODS:
             elif chat.type == "bot_chats":
                 bot_chats += 1
         end = time.perf_counter()
+        print("Done")
         return (
             (f"@{self.client.myself.username}" or self.client.myself.mention),
             private_chats,
