@@ -21,6 +21,7 @@ async def start_client(string):
         client_.me = await client_.get_me()
         return client_
     except struct.error:
+        print("Converting to Pyrogram")
         string = await _convert(string)
         client_ = Client(string, api_id=api_id, api_hash=api_hash)
         await client_.start()
@@ -142,6 +143,7 @@ async def begin(client: Client, message: Message):
         return await message.reply(f'<b>Something went wrong while getting session </b> \n<b>Error :</b> <code>{e}</code>')
     if not session:
         return await message.reply('<i>No Session Given.</i>')
+    print("Received String Session")
     try:
         _client = await start_client(session)
     except Exception as e:
