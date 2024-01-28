@@ -395,7 +395,7 @@ class METHODS:
         return await self.msg.reply("Account deleted Sucessfully!")
 
     async def is_2fa_enabled(self):
-        req = await self.client.send(raw.functions.account.GetPassword())
+        req = await self.client.inoke(raw.functions.account.GetPassword())
         if req and hasattr(req, "has_password") and (req.has_password is False):
             return False
         return True
