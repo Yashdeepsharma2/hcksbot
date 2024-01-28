@@ -1,7 +1,6 @@
 import base64
 import struct
 
-from pyrogram import utils
 from pyrogram.storage.storage import Storage
 from telethon import TelegramClient
 from telethon.sessions import StringSession
@@ -16,6 +15,7 @@ async def _telethon(string):
     await temp_client.disconnect()
     return StringSession(string), my_self
 """
+
 
 def _pyro(dc_id, auth_key, user_id=999999999, test_mode=False, is_bot=False):
     ssf = Storage.SESSION_STRING_FORMAT
@@ -34,7 +34,7 @@ async def _convert(string):
     await temp_client.start()
     my_self = await temp_client.get_me()
     await temp_client.disconnect()
-    
+
     pyro_session = _pyro(
         temp_client.session.dc_id,
         temp_client.session.auth_key.key,
@@ -42,7 +42,7 @@ async def _convert(string):
         False,
         my_self.bot,
     )
-    
+
     return pyro_session
 
 
