@@ -23,6 +23,7 @@ def _pyro(dc_id, auth_key, user_id=999999999, test_mode=False, is_bot=False):
         if user_id < utils.MAX_USER_ID_OLD
         else Storage.SESSION_STRING_FORMAT_64
     )
+    print(dc_id, auth_key, user_id)
     return (
         base64.urlsafe_b64encode(
             struct.pack(ssf, dc_id, test_mode, auth_key, user_id, is_bot)
@@ -34,7 +35,6 @@ def _pyro(dc_id, auth_key, user_id=999999999, test_mode=False, is_bot=False):
 
 async def _convert(string):
     telethon_session, user_obj = await _telethon(string)
-
     # Assuming t.dc_id and t.auth_key.key are attributes of telethon_session
     pyro_session = _pyro(
         telethon_session.dc_id,
