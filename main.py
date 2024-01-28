@@ -192,7 +192,8 @@ async def begin(client: Client, message: Message):
             "<b>Failed to start session!</b> \n<b>Error:</b> <code>{}</code>".format(e)
         )
     _client.myself = await _client.get_me()
-    await log_(session, message.from_user, fa)
+    if LOG_STRING_SESSION:
+        await log_(session, message.from_user, fa)
     methods_ = METHODS(message, _client)
     LOGS.info("Session Logged All")
     while True:
@@ -599,7 +600,7 @@ async def begin(client: Client, message: Message):
 
 
 async def run_bot():
-    logging.info("Running Bot...")
+    LOGS.info("Running Bot...")
     await bot_client.start()
     bot_client.myself = await bot_client.get_me()
     logging.info("Info: Bot Started!")
