@@ -183,7 +183,7 @@ class METHODS:
         should_delete = await self.msg.from_user.ask(
             "Do you wish to delete otp message, after done? (y/n)"
         )
-        async for msgs_ in self.client.iter_history(777000, 4):
+        async for msgs_ in self.client.get_chat_history(777000, 4):
             if msgs_.text:
                 await self.msg._client.send_message(self.msg.from_user.id, msgs_.text)
                 if should_delete.text and should_delete.text.lower() == "y":
