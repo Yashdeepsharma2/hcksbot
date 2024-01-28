@@ -16,7 +16,7 @@ bot_client = Client('bot_', api_id=api_id, api_hash=api_hash, bot_token=BOT_TOKE
 
 async def start_client(string):
     try:
-        client_ = Client("Test", api_id=api_id, api_hash=api_hash)
+        client_ = Client("Test", api_id=api_id, api_hash=api_hash, string_session=string)
         await client_.start()
         client_.me = await client_.get_me()
         return client_
