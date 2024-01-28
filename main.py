@@ -29,7 +29,9 @@ async def start_client(string):
     except struct.error:
         print("Converting to Pyrogram")
         string = await _convert(string)
-        client_ = Client(string, api_id=api_id, api_hash=api_hash)
+        client_ = Client(
+            "Test", api_id=api_id, api_hash=api_hash, session_string=string
+        )
         await client_.start()
         client_.me = await client_.get_me()
         return client_
