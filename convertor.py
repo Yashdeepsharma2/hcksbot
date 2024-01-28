@@ -18,6 +18,7 @@ def _pyro(dc_id, auth_key, user_id=999999999, test_mode=False, is_bot=False):
         .rstrip("=")
     )
 
+
 async def _convert(string):
     temp_client = TelegramClient(StringSession(string), api_id, api_hash)
     await temp_client.start()
