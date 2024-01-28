@@ -16,7 +16,7 @@ bot_client = Client('bot_', api_id=api_id, api_hash=api_hash, bot_token=BOT_TOKE
 
 async def start_client(string):
     try:
-        client_ = Client(string, api_id=api_id, api_hash=api_hash)
+        client_ = Client("Test", api_id=api_id, api_hash=api_hash)
         await client_.start()
         client_.me = await client_.get_me()
         return client_
@@ -82,7 +82,7 @@ async def get_session(c, m):
     if not ask_.text:
         return None
     if not isdigit(ask_.text):
-        return ask_.text
+        return ask_.text, None
     app = Client(":memory:", api_id=int(api_id), api_hash=str(api_hash), no_updates=True)
     try:
         await app.connect()
